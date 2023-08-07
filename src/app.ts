@@ -27,6 +27,11 @@ if (allowedOrigins) {
   app.use(cors());
 }
 
+app.use((req, res, next) => {
+  console.log(`Request to ${req.method} ${req.path}`);
+  next();
+});
+
 app.use("/api", apiRoutes);
 app.use("/health", health);
 
