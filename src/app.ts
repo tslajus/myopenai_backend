@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import apiRoutes from "./routes/api";
+import health from "./routes/health";
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ if (allowedOrigins) {
 }
 
 app.use("/api", apiRoutes);
+app.use("/health", health);
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
